@@ -10,7 +10,7 @@ class PostController extends Controller
     public function index() {
       //  dd( );  // This should return the authenticated user or null if not authenticated.
 
-        $posts = Post::with('user', 'comments.user')->paginate(10);
+      $posts = Post::where('user_id', Auth::id())->paginate(10); // Get posts of logged-in user
         return view('posts.index', compact('posts'));
     }
 
