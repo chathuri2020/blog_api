@@ -24,7 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::delete('/posts/{id}', [PostController::class, 'destroy'])->name('posts.destroy');
 
     // Comment routes (uncomment these if needed)
-    Route::post('posts/{post}/comments', [CommentController::class, 'store']);
+    Route::post('posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::put('comments/{id}', [CommentController::class, 'update']);
     Route::delete('comments/{id}', [CommentController::class, 'destroy']);
 //});
