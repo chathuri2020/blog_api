@@ -58,11 +58,12 @@
                                                             <!-- Display Comments -->
                                                             <h5>Comments:</h5>
                                                             @foreach ($post->comments as $comment)
-                                                                <div class="comment">
-                                                                    <strong>{{ $comment->user_id }}</strong>
-                                                                    <p>{{ $comment->body }}</p>
+                                                                <div class="comment bg-light p-2 mb-2 rounded">
+                                                                    <strong class="small">{{ $comment->user_id }}</strong>
+                                                                    <p class="small">{{ $comment->body }}</p>
                                                                 </div>
                                                             @endforeach
+
                                                     </figure>
                                                 </div>
                                             @endforeach
