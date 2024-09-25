@@ -13,7 +13,7 @@
             <label for="body">Body</label>
             <textarea name="body" id="body" class="form-control" required></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group mb-2">
             <label for="status">Status</label>
             <select name="status" id="status" class="form-control" required>
                 <option value="published">Published</option>

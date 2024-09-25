@@ -35,11 +35,15 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function edit(Post $post) {
+    public function edit($id)
+    {
+        $post = Post::findOrFail($id);
         return view('posts.edit', compact('post'));
     }
 
-    public function update(Request $request, Post $post) {
+
+    public function update(Request $request, $post) {
+        $post = Post::find($post);
         $request->validate([
             'title' => 'required',
             'body' => 'required',
@@ -50,8 +54,13 @@ class PostController extends Controller
         return redirect()->route('posts.index');
     }
 
-    public function destroy(Post $post) {
+    public function destroy($id)
+    {
+        $post = Post::find($id);
+        if (!$post) {
+            return redirect()->route('posts.index')->with('error', 'Post not found.');
+        }
         $post->delete();
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success', 'Post deleted successfully.');
     }
 }
